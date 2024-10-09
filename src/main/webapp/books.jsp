@@ -45,6 +45,8 @@
 						<%=book.getDescription().substring(0, 60)%>...
 					<p>
 						<%=book.getUnitPrice()%>원
+						<p> <a href="./book.jsp?id=<%=book.getBookId()  %>"
+						class="btn btn-secondary" role="button"> 상세 정보 &raquo;></a>
 				</div>
 			</div>
 			<%
