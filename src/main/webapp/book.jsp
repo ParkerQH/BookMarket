@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.ArrayList, dto.Book"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, dto.Book, dao.BookRepository"%>
 <!DOCTYPE html>
 <jsp:useBean id="bookDAO" class="dao.BookRepository" scope="session" />
 <html>
@@ -24,7 +24,8 @@
 		</div>
 		<%
 		String id = request.getParameter("id");
-		Book book = bookDAO.getBookById(id);
+		BookRepository dao = BookRepository.getInstance();
+		Book book = dao.getBookById(id);
 		%>
 
 		<div class="row align-items-md-stretch">

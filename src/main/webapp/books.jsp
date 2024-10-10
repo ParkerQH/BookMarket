@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.ArrayList, dto.Book"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, dto.Book, dao.BookRepository"%>
 <!DOCTYPE html>
 <jsp:useBean id="bookDAO" class="dao.BookRepository" scope="session" />
 <html>
@@ -23,7 +23,9 @@
 			</div>
 		</div>
 		<%
-		ArrayList<Book> listOfBooks = bookDAO.getAllBooks();
+		BookRepository dao=BookRepository.getInstance();
+		ArrayList<Book> listOfBooks = dao.getAllBooks();
+		System.out.println("도서 목록의 크기: " + listOfBooks.size());
 		%>
 
 		<div class="row align-items-md-stretch text-center">
