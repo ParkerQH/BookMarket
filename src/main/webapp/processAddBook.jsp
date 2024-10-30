@@ -2,20 +2,34 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="dto.Book"%>
 <%@ page import="dao.BookRepository"%>
+<%@ page import="com.oreilly.servlet.*"%>
+<%@ page import="com.oreilly.servlet.multipart.*"%>
+<%@ page import="java.util.*"%>
 
 <%
 request.setCharacterEncoding("UTF-8");
 
-String bookId=request.getParameter("bookId");
-String name=request.getParameter("name");
-String unitPrice=request.getParameter("unitPrice");
-String author=request.getParameter("author");
-String publisher=request.getParameter("publisher");
-String releaseDate=request.getParameter("releaseDate");
-String description=request.getParameter("description");
-String category=request.getParameter("category");
-String unitsInStock=request.getParameter("unitsInStock");
-String condition=request.getParameter("condition");
+String filename="";
+String realFolder = "C:\\Users\\bluez\\eclipse-workspace\\BookMarket\\src\\main\\webapp\\resources\\images";
+int maxSize = 5 * 1024 * 1024;
+String encType = "utf-8";
+
+MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+
+String bookId=multi.getParameter("bookId");
+String name=multi.getParameter("name");
+String unitPrice=multi.getParameter("unitPrice");
+String author=multi.getParameter("author");
+String publisher=multi.getParameter("publisher");
+String releaseDate=multi.getParameter("releaseDate");
+String description=multi.getParameter("description");
+String category=multi.getParameter("category");
+String unitsInStock=multi.getParameter("unitsInStock");
+String condition=multi.getParameter("condition");
+
+Enumeration files = multi.getFileNames();
+String fname = (String) files.nextElement();
+String fileName = multi.getFilesystemName(fname);
 
 Integer price;
 if(unitPrice == null || unitPrice.isEmpty())
@@ -42,6 +56,7 @@ newBook.setDescription(description);
 newBook.setCategory(category);
 newBook.setUnitInStock(stock);
 newBook.setCondition(condition);
+newBook.setFilename(fileName);
 
 dao.addBook(newBook);
 

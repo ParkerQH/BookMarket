@@ -9,7 +9,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-
+<link rel = "stylesheet" href ="./resources/css/bootstrap.min.css" />
 <title>도서 정보</title>
 </head>
 <body>
@@ -29,6 +29,9 @@
 		%>
 
 		<div class="row align-items-md-stretch">
+		<div class = "col-md-5">
+			<img src="./resources/images/<%=book.getFilename()%>" style = "width : 70%">
+		</div>
 			<div class="col-md-12">
 			<h3><b><%=book.getName() %></b></h3>
 			<p> <%=book.getDescription() %>
