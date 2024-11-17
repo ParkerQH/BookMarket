@@ -57,9 +57,9 @@ String id = request.getParameter("id");
             <p><b>재고수</b> : <%=rs.getInt("b_unitsInStock") %></p>
             <h4><%=rs.getString("b_unitPrice") %>원</h4>
             <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("b_id") %>" method="post">
-                <p><a href="#" class="btn btn-info" onclick="addToCart()">도서주문 &raquo;</a></p>
-                <p><a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a></p>
-                <p><a href="./books.jsp" class="btn btn-secondary">도서 목록 &raquo;</a></p>
+                <a href="#" class="btn btn-info" onclick="addToCart()">도서주문 &raquo;</a>
+                <a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
+                <a href="./books.jsp" class="btn btn-secondary">도서 목록 &raquo;</a>
             </form>
         </div>
     </div>
