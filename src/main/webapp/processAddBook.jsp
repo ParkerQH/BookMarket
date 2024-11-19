@@ -9,7 +9,7 @@
 request.setCharacterEncoding("UTF-8");
 
 // 파일 업로드 설정
-String realFolder = "C:\\Users\\bluez\\eclipse-workspace\\BookMarket\\src\\main\\webapp\\resources\\images";
+String realFolder = application.getRealPath("/resources/images");
 int maxSize = 5 * 1024 * 1024; // 5MB 제한
 String encType = "utf-8";
 

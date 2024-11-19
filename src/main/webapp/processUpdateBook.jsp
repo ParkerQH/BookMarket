@@ -9,7 +9,7 @@
 request.setCharacterEncoding("UTF-8");
 
 String filename="";
-String realFolder = "C:\\Users\\bluez\\eclipse-workspace\\BookMarket\\src\\main\\webapp\\resources\\images";
+String realFolder = application.getRealPath("/resources/images");
 int maxSize = 5 * 1024 * 1024;
 String encType = "utf-8";
 
@@ -67,6 +67,21 @@ if (rs.next()) {
 		pstmt.setString(9, condition);
 		pstmt.setString(10, fileName);
 		pstmt.setString(11, bookId);
+		pstmt.executeUpdate();
+	}
+	else {
+		sql = "UPDATE book SET b_name = ?, b_unitPrice = ?, b_author = ?, b_description = ?, b_publisher = ?, b_category = ?, b_unitsInStock = ?, b_releaseDate = ?, b_condition = ? WHERE b_id = ?";
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, name);
+		pstmt.setInt(2, price);
+		pstmt.setString(3, author);
+		pstmt.setString(4, description);
+		pstmt.setString(5, publisher);
+		pstmt.setString(6, category);
+		pstmt.setLong(7, stock);
+		pstmt.setString(8, releaseDate);
+		pstmt.setString(9, condition);
+		pstmt.setString(10, bookId);
 		pstmt.executeUpdate();
 	}
 }
