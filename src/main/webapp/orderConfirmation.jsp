@@ -63,7 +63,8 @@
 		</div>
 		<div class="row justify-content-between">
 			<div class="col-4" align="left">
-				<strong>배송 주소</strong> <br> 성명 : <% out.println(shipping_name); %><br> 
+				<strong>배송 주소</strong> <br> 
+				성명 : <% out.println(shipping_name); %><br> 
 				우편번호 : <% 	out.println(shipping_zipCode);%><br> 
 				주소 : <%	out.println(shipping_addressName);%>(<%	out.println(shipping_country);%>)<br>
 			</div>

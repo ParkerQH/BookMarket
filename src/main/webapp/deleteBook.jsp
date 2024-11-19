@@ -16,7 +16,7 @@
 		pstmt.setString(1, bookId);
 		pstmt.executeUpdate();
 	} else
-		out.println("일칠하는 도서가 없습니다.");
+		out.println("일치하는 도서가 없습니다.");
 	
 	if (rs!=null)
 		rs.close();
